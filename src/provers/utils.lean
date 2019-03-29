@@ -1,4 +1,4 @@
-import mathematica
+import mathematica data.real.basic tactic.ring tactic.linarith
 open expr tactic classical
 
 section logical_equivalences
@@ -127,7 +127,7 @@ meta def simph (cfg : simp_config := {}) : tactic unit :=
 collect_ctx_simps >>= simp_only >> simp
 
 meta def finish : tactic unit :=
-assumption <|> contradiction <|> triv
+assumption <|> contradiction <|> triv <|> `[linarith] <|> `[ring1]
 
 /- negation normal form, disjunctive normal form, and conjunctive normal form -/
 
